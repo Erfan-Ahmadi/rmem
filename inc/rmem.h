@@ -18,6 +18,8 @@
 
 #include <stdint.h>
 
+namespace rmem { class MemoryHook; }
+
 /*--------------------------------------------------------------------------
  * Platforms
  *------------------------------------------------------------------------*/
@@ -224,6 +226,8 @@ extern "C" {
 /*--------------------------------------------------------------------------
  * API
  *------------------------------------------------------------------------*/
+	// exposed this because I need multiple DLLs to share
+	rmem::MemoryHook*& getMemoryHookPtr();
 
 	/* Initialize memory library and set which type of hook to use */
 	/* _data is used internally, pass 0 if manually instrumenting */
